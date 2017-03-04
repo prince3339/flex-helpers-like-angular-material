@@ -10,8 +10,9 @@ CSS flex helper classes like angular material directives
 You are now ready to go. Just include the css file into your project.
 
 Generated class will be almost like angular material.
-<br>
+</br>
 Examples: 
+</br>
 1. Layout row classes:
    1. layout-row 
    2. layout-row-xs
