@@ -13,7 +13,7 @@ Generated class will be almost like angular material.
 </br>
 Examples: 
 </br>
-1. Layout row classes:
+### 1. Layout row classes:
    1. layout-row 
    2. layout-row-xs
    3. layout-row-gt-xs
@@ -25,7 +25,7 @@ Examples:
    9. layout-row-lg
    10. layout-row-gt-lg
    
-2. Layout column classes:
+### 2. Layout column classes:
    1. layout-column 
    2. layout-column-xs
    3. layout-column-gt-xs
@@ -37,7 +37,7 @@ Examples:
    9. layout-column-lg
    10. layout-column-gt-lg
    
-3. Layout align classes
+### 3. Layout align classes
    1. layout-align-start-start (-xs, -gt-xs, sm, gt-sm, gt-sm-max, md, gt-md, lg, gt-lg [These are breakpoints])
    2. layout-align-start-center (-xs, -gt-xs, sm, gt-sm, gt-sm-max, md, gt-md, lg, gt-lg)
    3. layout-align-start-end (-xs, -gt-xs, sm, gt-sm, gt-sm-max, md, gt-md, lg, gt-lg)
@@ -59,7 +59,7 @@ Examples:
    19. layout-align-space-between-end (-xs, -gt-xs, sm, gt-sm, gt-sm-max, md, gt-md, lg, gt-lg)
    20. layout-align-space-between-stretch (-xs, -gt-xs, sm, gt-sm, gt-sm-max, md, gt-md, lg, gt-lg)
     
-4. Flex classes
+### 4. Flex classes
    1. flex
    2. flex-5 (5, 10, 15, 20 ... 100)
    3. flx-(-xs, -gt-xs, sm, gt-sm, gt-sm-max, md, gt-md, lg, gt-lg)-(5, 10, 15, 20 ... 100)
