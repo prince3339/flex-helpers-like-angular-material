@@ -1,0 +1,146 @@
+// @author Sabbir Ahmed
+//Git profile link: https://github.com/prince3339/
+
+.layout-align {
+    @each $layout_prop,
+    $layout_value in $layouts {
+        &-#{$layout_prop} {
+            justify-content: nth($layout_value, 1) !important;
+            align-items: nth($layout_value, 2) !important;
+            @each $brkpoint_name,
+            $brkpoint_value in $breakpoints {
+                &-#{$brkpoint_name} {
+                    @include breakpoint($brkpoint_name) {
+                        justify-content: nth($layout_value, 1) !important;
+                        align-items: nth($layout_value, 2) !important;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.layout {
+    &-row {
+        @include display_flex;
+        flex-direction: row;
+        @include flexValueClasses(layout-row, 20, 5, 0);
+
+        @each $brkpoint_name,
+        $brkpoint_value in $breakpoints {
+            &-#{$brkpoint_name} {
+                @include breakpoint($brkpoint_name) {
+                  @include display_flex;
+                  flex-direction: row;
+                }
+
+                > {
+                    @include flexValueClasses(layout-row, 20, 5, 0);
+                }
+            }
+        }
+    }
+    &-row--reverse {
+        @include display_flex;
+        flex-direction: row-reverse;
+        @include flexValueClasses(layout-row, 20, 5, 0);
+
+        @each $brkpoint_name,
+        $brkpoint_value in $breakpoints {
+            &-#{$brkpoint_name} {
+                @include breakpoint($brkpoint_name) {
+                  @include display_flex;
+                  flex-direction: row-reverse;
+                }
+
+                > {
+                    @include flexValueClasses(layout-row, 20, 5, 0);
+                }
+            }
+        }
+    }
+    &-column {
+        @include display_flex;
+        flex-direction: column;
+        @include flexValueClasses(layout-column, 20, 5, 0);
+
+        @each $brkpoint_name,
+        $brkpoint_value in $breakpoints {
+            &-#{$brkpoint_name} {
+                @include breakpoint($brkpoint_name) {
+                  @include display_flex;
+                  flex-direction: column;
+                }
+
+                > {
+                    @include flexValueClasses(layout-column, 20, 5, 0);
+                }
+            }
+        }
+    }
+    &-column--reverse {
+        @include display_flex;
+        flex-direction: column-reverse;
+        @include flexValueClasses(layout-column, 20, 5, 0);
+
+        @each $brkpoint_name,
+        $brkpoint_value in $breakpoints {
+            &-#{$brkpoint_name} {
+                @include breakpoint($brkpoint_name) {
+                  @include display_flex;
+                  flex-direction: column-reverse;
+                }
+
+                > {
+                    @include flexValueClasses(layout-column, 20, 5, 0);
+                }
+            }
+        }
+    }
+}
+
+.layout-wrap {
+    flex-wrap: wrap;
+
+    @each $brkpoint_name,
+    $brkpoint_value in $breakpoints {
+        &-#{$brkpoint_name} {
+            @include breakpoint($brkpoint_name) {
+              flex-wrap: wrap;
+            }
+        }
+    }
+
+    &--nowrap {
+        flex-wrap: nowrap;
+
+        @each $brkpoint_name,
+        $brkpoint_value in $breakpoints {
+            &-#{$brkpoint_name} {
+                @include breakpoint($brkpoint_name) {
+                  flex-wrap: nowrap;
+                }
+            }
+        }
+    }
+    &--reverse {
+        flex-wrap: wrap-reverse;
+
+        @each $brkpoint_name,
+        $brkpoint_value in $breakpoints {
+            &-#{$brkpoint_name} {
+                @include breakpoint($brkpoint_name) {
+                  flex-wrap: wrap-reverse;
+                }
+            }
+        }
+    }
+}
+
+.flex {
+    @include flexValue(1);
+    &__none {
+        flex: none !important;
+    }
+}

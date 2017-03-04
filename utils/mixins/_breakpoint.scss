@@ -1,0 +1,100 @@
+// @author Sabbir Ahmed
+//Git profile link: https://github.com/prince3339/
+// For breakpoint mixin I took help from
+//https://medium.com/developing-with-sass/creating-a-dead-simple-sass-mixin-to-handle-responsive-breakpoints-889927b37740#.vm2sinrm9 here
+
+// @content properties upon whoom the breakpoints apply
+
+// Usage:
+//   @include breakpoint(md) {
+//     property: value;
+//   }
+//   @include breakpoint(480px) {
+//     property: value;
+//   }
+//   @include breakpoint($min: 640px, $max: 767px) {
+//     property: value;
+//   }
+
+@mixin breakpoint($min: 0, $max: 0) {
+  $type: type-of($min);
+
+  @if $type == string {
+    @if $min==xs {
+        @media (max-width: 599px) {
+            @content;
+        }
+    }
+    @else if $min==gt-xs {
+        @media (min-width: 600px) {
+            @content;
+        }
+    }
+    @else if $min==sm {
+        @media (min-width: 600px) and (max-width: 991px) {
+            @content;
+        }
+    }
+
+    @else if $min==gt-sm {
+        @media (min-width: 992px) {
+            @content;
+        }
+    }
+    @else if $min==gt-sm-max {
+        @media (max-width: 991px) {
+            @content;
+        }
+    }
+    @else if $min==md {
+        @media (min-width: 992px) and (max-width: 1279px) {
+            @content;
+        }
+    }
+    @else if $min==gt-md {
+        @media (min-width: 1280px) {
+            @content;
+        }
+    }
+    @else if $min==lg {
+        @media (min-width: 1280px) and (max-width: 1919px) {
+            @content;
+        }
+    }
+    @else if $min==gt-lg {
+        @media (min-width: 1920px) {
+            @content;
+        }
+    }
+  }
+
+  @else if $type==number {
+      $query: "all" !default;
+      @if $min !=0 and $max !=0 {
+          $query: "(min-width: #{$min}) and (max-width: #{$max})";
+      }
+      @else if $min !=0 and $max==0 {
+          $query: "(min-width: #{$min})";
+      }
+      @else if $min==0 and $max !=0 {
+          $query: "(max-width: #{$max})";
+      }
+      @media #{$query} {
+          @content;
+      }
+  }
+  @else {
+      @warn "Breakpoint mixin supports: xs, sm, md, lg, like 480px/$min: 640px, $max: 767px as parameter";
+  }
+}
+
+/// @name taget retina
+/// @author Sabbir Ahmed
+/// @link https://css-tricks.com/snippets/css/retina-display-media-query/
+/// @content properties upon whoom the retina breakpoints apply
+@mixin retina {
+    //future proof script
+    @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and ( min--moz-device-pixel-ratio: 2), only screen and ( -o-min-device-pixel-ratio: 2/1), only screen and ( min-device-pixel-ratio: 2), only screen and ( min-resolution: 192dpi), only screen and ( min-resolution: 2dppx) {
+        @content;
+    }
+}

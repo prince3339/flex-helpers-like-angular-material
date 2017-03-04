@@ -1,0 +1,53 @@
+@mixin flexValue($value) {
+  -webkit-box-flex: $value;
+  box-sizing: border-box;
+  -webkit-flex: $value;
+  flex: $value;
+}
+
+@mixin flexConditionalProperties($value, $layout) {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 100%;
+  flex: 1 1 100%;
+  box-sizing: border-box;
+
+  $percentage: '%';
+  @if $layout == layout-row {
+    max-width: #{$value}#{$percentage};
+    max-height: 100%;
+  }
+  @else if $layout == layout-column {
+    max-width: 100%;
+    max-height: #{$value}#{$percentage};
+  }
+}
+
+@mixin flexValueClasses($layout, $length, $interval, $ignore-interval:0, $brkpoint_name: null){
+    @for $i from 0 through $length {
+        $value: $i * $interval;
+        $is-write: if(($ignore-interval > 0), if(($value % $ignore-interval == 0), 0, 1), 1);
+        @if ($is-write == 1) {
+            @if ($brkpoint_name){
+              .flex-#{$brkpoint_name}-#{$value}{
+                  @include flexConditionalProperties($value, $layout);
+              }
+            }@else {
+              .flex-#{$value} {
+                @include flexConditionalProperties($value, $layout);
+              }
+            }
+        }
+    }
+}
+
+// @mixin test ($length) {
+//   @for $i from 0 through $length {
+//     .width-#{$i} {
+//       width: $i;
+//     }
+//   }
+// }
+//
+//
+// @include test(5);
+//@include genDimentionClasses(2, 4, 4);

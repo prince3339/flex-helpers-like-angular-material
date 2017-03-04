@@ -1,0 +1,39 @@
+// @prop breakpoints
+// @author Sabbir Ahmed
+//Git profile link: https://github.com/prince3339/
+// @access public
+$breakpoints: (
+  xs: xs,
+  gt-xs: gt-xs,
+  sm: sm,
+  gt-sm: gt-sm,
+  gt-sm-max: gt-sm-max,
+  md: md,
+  gt-md: gt-md,
+  lg: lg,
+  gt-lg: gt-lg
+) !default;
+
+
+$layouts: (
+  start-start: (flex-start, flex-start),
+  start-center: (flex-start, center),
+  start-end: (flex-start, flex-end),
+  start-stretch: (flex-start, stretch),
+  center-start: (center, flex-start),
+  center-center: (center, center),
+  center-end: (center, flex-end),
+  center-stretch: (center, stretch),
+  end-start: (flex-end, flex-start),
+  end-center: (flex-end, center),
+  end-end: (flex-end, flex-end),
+  end-stretch: (flex-end, stretch),
+  space-around-start: (space-around, flex-start),
+  space-around-center: (space-around, center),
+  space-around-end: (space-around, flex-end),
+  space-around-stretch: (space-around, stretch),
+  space-between-start: (space-between, flex-start),
+  space-between-center: (space-between, center),
+  space-between-end: (space-between, flex-end),
+  space-between-stretch: (space-between, stretch),
+  );
