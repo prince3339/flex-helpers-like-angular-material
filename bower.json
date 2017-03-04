@@ -1,0 +1,17 @@
+{
+  "name": "flex-helpers-like-angular-material",
+  "description": "Css flexbox helper classes like angular material framework",
+  "main": "Gruntfile.js",
+  "authors": [
+    "Sabbir Ahmed Siddiquee"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/prince3339/flex-helpers-like-angular-material",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

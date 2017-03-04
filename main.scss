@@ -1,7 +1,8 @@
 // @author Sabbir Ahmed
 //Git profile link: https://github.com/prince3339/
 
-@import "utils/variables",
+@import "utils/variables/breakpoints",
+        "utils/variables/layouts",
         "utils/mixins/breakpoint",
         "utils/mixins/display",
         "utils/mixins/flex-value",

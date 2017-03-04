@@ -1,0 +1,15 @@
+// @prop breakpoints
+// @author Sabbir Ahmed
+//Git profile link: https://github.com/prince3339/
+// @access public
+$breakpoints: (
+  xs: xs,
+  gt-xs: gt-xs,
+  sm: sm,
+  gt-sm: gt-sm,
+  gt-sm-max: gt-sm-max,
+  md: md,
+  gt-md: gt-md,
+  lg: lg,
+  gt-lg: gt-lg
+) !default;
