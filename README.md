@@ -2,7 +2,9 @@
 CSS flex helper classes like angular material directives
 ## Usage:
 1. Download this repo
-2. Or use Bower to install: bower install flex-helpers-like-angular-material
+2. Or use Bower to install: 
+   <br>
+   <strong>bower install flex-helpers-like-angular-material</strong>
 3. Browse to flex-helpers-like-angular-material and run npm install in command prompt/terminal
 4. Run grunt to compile sass to css
 5. You'll see main.css file inside style folder
