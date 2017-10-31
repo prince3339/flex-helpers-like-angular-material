@@ -64,5 +64,5 @@ Examples:
 ### 4. Flex classes
    1. flex
    2. flex-5 (5, 10, 15, 20 ... 100)
-   3. flx-(-xs, -gt-xs, sm, gt-sm, gt-sm-max, md, gt-md, lg, gt-lg)-(5, 10, 15, 20 ... 100)
+   3. flex-(-xs, -gt-xs, sm, gt-sm, gt-sm-max, md, gt-md, lg, gt-lg)-(5, 10, 15, 20 ... 100)
 
