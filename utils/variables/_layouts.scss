@@ -19,4 +19,15 @@ $layouts: (
   space-between-center: (space-between, center),
   space-between-end: (space-between, flex-end),
   space-between-stretch: (space-between, stretch),
-  );
+);
+
+$self_align_props: (
+  auto: (auto),
+  stretch: (stretch),
+  center: (center),
+  flex-start: (flex-start),
+  flex-end: (flex-end),
+  baseline: (baseline),
+  initial: (initial),
+  inherit: (inherit)
+);

@@ -1,0 +1,54 @@
+@mixin generate-layout($prop) {
+  .layout-row, .layout-row--reverse {
+    &-#{$prop} {
+      @include breakpoint($prop) {
+        @include display_flex;
+      }
+      > {
+        @include breakpoint($prop) {
+          @include flexValueClasses(layout-row, 20, 5, 0);
+          @include flexValueClasses(layout-row, 20, 5, 0, $prop);
+        }
+      }
+    }
+  }
+  .layout-row {
+    &-#{$prop} {
+      @include breakpoint($prop) {
+        flex-direction: row;
+      }
+    }
+    &--reverse-#{$prop} {
+      @include breakpoint($prop) {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+
+  .layout-column, .layout-column--reverse {
+    &-#{$prop} {
+      @include breakpoint($prop) {
+        @include display_flex;
+      }
+      > {
+        @include breakpoint($prop) {
+          @include flexValueClasses(layout-column, 20, 5, 0);
+          @include flexValueClasses(layout-column, 20, 5, 0, $prop);
+        }
+      }
+    }
+  }
+
+  .layout-column {
+    &-#{$prop} {
+      @include breakpoint($prop) {
+        flex-direction: column;
+      }
+    }
+    &--reverse-#{$prop} {
+      @include breakpoint($prop) {
+        flex-direction: column-reverse;
+      }
+    }
+  }
+}

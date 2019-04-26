@@ -1,146 +1,136 @@
 // @author Sabbir Ahmed
 //Git profile link: https://github.com/prince3339/
+//Reference: https://github.com/prince3339/flex-helpers-like-angular-material
 
-.layout-align {
-    @each $layout_prop,
-    $layout_value in $layouts {
-        &-#{$layout_prop} {
-            justify-content: nth($layout_value, 1) !important;
-            align-items: nth($layout_value, 2) !important;
-            @each $brkpoint_name,
-            $brkpoint_value in $breakpoints {
-                &-#{$brkpoint_name} {
-                    @include breakpoint($brkpoint_name) {
-                        justify-content: nth($layout_value, 1) !important;
-                        align-items: nth($layout_value, 2) !important;
-                    }
-                }
-            }
-        }
-    }
+.align-self{
+  @each $props_name,
+  $props_value in $self_align_props {
+		&-#{nth($props_value, 1)} {
+			align-self: nth($props_value, 1);
+		}
+  }
+}
+
+.layout-row {
+	flex-direction: row;
+	&--reverse {
+		flex-direction: row-reverse;
+	}
+}
+
+.layout-row, .layout-row--reverse {
+	@include display_flex;
+	> {
+		@include flexValueClasses(layout-row, 20, 5, 0);
+		@each $brkpoint_name,
+		$brkpoint_value in $breakpoints {
+			@include breakpoint(brkpoint_name) {
+				@include flexValueClasses(layout-row, 20, 5, 0, $brkpoint_name);
+			}
+		}
+	}
+}
+
+.layout-column {
+	flex-direction: column;
+	&--reverse {
+		flex-direction: column-reverse;
+	}
+}
+
+.layout-column, .layout-column--reverse {
+	@include display_flex;
+	> {
+		@include flexValueClasses(layout-column, 20, 5, 0);
+		@each $brkpoint_name,
+		$brkpoint_value in $breakpoints {
+			@include breakpoint(brkpoint_name) {
+				@include flexValueClasses(layout-column, 20, 5, 0, $brkpoint_name);
+			}
+		}
+	}
 }
 
 
-.layout {
-    &-row {
-        @include display_flex;
-        flex-direction: row;
-        @include flexValueClasses(layout-row, 20, 5, 0);
+@each $brkpoint_name,
+$brkpoint_value in $breakpoints {
+	@include breakpoint($brkpoint_name) {
+		@include generate-layout($brkpoint_name);
+		@include align-self($brkpoint_name);
+		@include layout-align($brkpoint_name);
+	}
+}
 
-        @each $brkpoint_name,
-        $brkpoint_value in $breakpoints {
-            &-#{$brkpoint_name} {
-                @include breakpoint($brkpoint_name) {
-                  @include display_flex;
-                  flex-direction: row;
-                }
-
-                > {
-                    @include flexValueClasses(layout-row, 20, 5, 0);
-                }
-            }
-        }
-    }
-    &-row--reverse {
-        @include display_flex;
-        flex-direction: row-reverse;
-        @include flexValueClasses(layout-row, 20, 5, 0);
-
-        @each $brkpoint_name,
-        $brkpoint_value in $breakpoints {
-            &-#{$brkpoint_name} {
-                @include breakpoint($brkpoint_name) {
-                  @include display_flex;
-                  flex-direction: row-reverse;
-                }
-
-                > {
-                    @include flexValueClasses(layout-row, 20, 5, 0);
-                }
-            }
-        }
-    }
-    &-column {
-        @include display_flex;
-        flex-direction: column;
-        @include flexValueClasses(layout-column, 20, 5, 0);
-
-        @each $brkpoint_name,
-        $brkpoint_value in $breakpoints {
-            &-#{$brkpoint_name} {
-                @include breakpoint($brkpoint_name) {
-                  @include display_flex;
-                  flex-direction: column;
-                }
-
-                > {
-                    @include flexValueClasses(layout-column, 20, 5, 0);
-                }
-            }
-        }
-    }
-    &-column--reverse {
-        @include display_flex;
-        flex-direction: column-reverse;
-        @include flexValueClasses(layout-column, 20, 5, 0);
-
-        @each $brkpoint_name,
-        $brkpoint_value in $breakpoints {
-            &-#{$brkpoint_name} {
-                @include breakpoint($brkpoint_name) {
-                  @include display_flex;
-                  flex-direction: column-reverse;
-                }
-
-                > {
-                    @include flexValueClasses(layout-column, 20, 5, 0);
-                }
-            }
-        }
-    }
+.layout-align {
+  @each $layout_prop,
+  $layout_value in $layouts {
+		&-#{$layout_prop} {
+			justify-content: nth($layout_value, 1) !important;
+			align-items: nth($layout_value, 2) !important;
+			align-content: nth($layout_value, 2) !important;
+		}
+  }
 }
 
 .layout-wrap {
-    flex-wrap: wrap;
+	flex-wrap: wrap;
+	
+  @each $brkpoint_name,
+  $brkpoint_value in $breakpoints {
+		&-#{$brkpoint_name} {
+			@include breakpoint($brkpoint_name) {
+				flex-wrap: wrap;
+			}
+		}
+  }
 
-    @each $brkpoint_name,
-    $brkpoint_value in $breakpoints {
-        &-#{$brkpoint_name} {
-            @include breakpoint($brkpoint_name) {
-              flex-wrap: wrap;
-            }
-        }
-    }
+  &--nowrap {
+		flex-wrap: nowrap;
 
-    &--nowrap {
-        flex-wrap: nowrap;
+		@each $brkpoint_name,
+		$brkpoint_value in $breakpoints {
+			&-#{$brkpoint_name} {
+				@include breakpoint($brkpoint_name) {
+					flex-wrap: nowrap;
+				}
+			}
+		}
+  }
+  &--reverse {
+		flex-wrap: wrap-reverse;
 
-        @each $brkpoint_name,
-        $brkpoint_value in $breakpoints {
-            &-#{$brkpoint_name} {
-                @include breakpoint($brkpoint_name) {
-                  flex-wrap: nowrap;
-                }
-            }
-        }
-    }
-    &--reverse {
-        flex-wrap: wrap-reverse;
-
-        @each $brkpoint_name,
-        $brkpoint_value in $breakpoints {
-            &-#{$brkpoint_name} {
-                @include breakpoint($brkpoint_name) {
-                  flex-wrap: wrap-reverse;
-                }
-            }
-        }
-    }
+		@each $brkpoint_name,
+		$brkpoint_value in $breakpoints {
+			&-#{$brkpoint_name} {
+				@include breakpoint($brkpoint_name) {
+					flex-wrap: wrap-reverse;
+				}
+			}
+		}
+  }
 }
 
 .flex {
-    @include flexValue(1);
-    &__none {
-        flex: none !important;
-    }
+  -webkit-box-flex: 1;
+  box-sizing: border-box;
+  -webkit-flex: 1;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0px;
+
+  &--none {
+    flex: none !important;
+  }
+  &--2 {
+    -webkit-box-flex: 2;
+    box-sizing: border-box;
+    -webkit-flex: 2;
+    flex: 2;
+  }
+  &--3 {
+    -webkit-box-flex: 3;
+    box-sizing: border-box;
+    -webkit-flex: 3;
+    flex: 3;
+  }
 }

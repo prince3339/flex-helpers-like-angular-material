@@ -1,0 +1,26 @@
+@mixin align-self($prop) {
+  .align-self-auto-#{$prop} {
+    align-self: auto;
+  }
+  .align-self-stretch-#{$prop} {
+    align-self: stretch;
+  }
+  .align-self-center-#{$prop} {
+    align-self: center;
+  }
+  .align-self-flex-start-#{$prop} {
+    align-self: flex-start;
+  }
+  .align-self-flex-end-#{$prop} {
+    align-self: flex-end;
+  }
+  .align-self-baseline-#{$prop} {
+    align-self: baseline;
+  }
+  .align-self-initial-#{$prop} {
+    align-self: initial;
+  }
+  .align-self-inherit-#{$prop} {
+    align-self: inherit;
+  }
+}

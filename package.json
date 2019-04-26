@@ -1,15 +1,23 @@
 {
   "name": "flex-helpers-like-angular-material",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Css flexbox helper classes like angular material framework",
   "main": "Gruntfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [
+    "flex",
+    "flexbox",
+    "flex helpers",
+    "Angular Material"
+  ],
   "author": "Sabbir Ahmed Siddiquee",
   "license": "ISC",
   "devDependencies": {
     "grunt": "^1.0.1",
-    "grunt-contrib-sass": "^1.0.0"
+    "grunt-sass": "^3.0.2",
+    "load-grunt-tasks": "^4.0.0",
+    "node-sass": "^4.11.0"
   }
 }

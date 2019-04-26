@@ -1,3 +1,5 @@
+//Reference: https://github.com/prince3339/flex-helpers-like-angular-material
+
 @mixin flexValue($value) {
   -webkit-box-flex: $value;
   box-sizing: border-box;
@@ -23,31 +25,19 @@
 }
 
 @mixin flexValueClasses($layout, $length, $interval, $ignore-interval:0, $brkpoint_name: null){
-    @for $i from 0 through $length {
-        $value: $i * $interval;
-        $is-write: if(($ignore-interval > 0), if(($value % $ignore-interval == 0), 0, 1), 1);
-        @if ($is-write == 1) {
-            @if ($brkpoint_name){
-              .flex-#{$brkpoint_name}-#{$value}{
-                  @include flexConditionalProperties($value, $layout);
-              }
-            }@else {
-              .flex-#{$value} {
-                @include flexConditionalProperties($value, $layout);
-              }
-            }
+  @for $i from 0 through $length {
+    $value: $i * $interval;
+    $is-write: if(($ignore-interval > 0), if(($value % $ignore-interval == 0), 0, 1), 1);
+    @if ($is-write == 1) {
+      @if ($brkpoint_name){
+        .flex-#{$brkpoint_name}-#{$value}{
+          @include flexConditionalProperties($value, $layout);
         }
+      }@else {
+        .flex-#{$value} {
+          @include flexConditionalProperties($value, $layout);
+        }
+      }
     }
+  }
 }
-
-// @mixin test ($length) {
-//   @for $i from 0 through $length {
-//     .width-#{$i} {
-//       width: $i;
-//     }
-//   }
-// }
-//
-//
-// @include test(5);
-//@include genDimentionClasses(2, 4, 4);
