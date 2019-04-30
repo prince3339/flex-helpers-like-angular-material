@@ -5,10 +5,13 @@
         @include display_flex;
       }
       > {
-        @include breakpoint($prop) {
-          @include flexValueClasses(layout-row, 20, 5, 0);
-          @include flexValueClasses(layout-row, 20, 5, 0, $prop);
-        }
+        @each $brkpoint_name,
+				$brkpoint_value in $breakpoints {
+					@include breakpoint($brkpoint_name) {
+						@include flexValueClasses(layout-row, 10, 10, 0);
+						@include flexValueClasses(layout-row, 10, 10, 0, $brkpoint_name);
+					}
+				}
       }
     }
   }
@@ -31,10 +34,13 @@
         @include display_flex;
       }
       > {
-        @include breakpoint($prop) {
-          @include flexValueClasses(layout-column, 20, 5, 0);
-          @include flexValueClasses(layout-column, 20, 5, 0, $prop);
-        }
+        @each $brkpoint_name,
+				$brkpoint_value in $breakpoints {
+					@include breakpoint($brkpoint_name) {
+						@include flexValueClasses(layout-column, 10, 10, 0);
+						@include flexValueClasses(layout-column, 10, 10, 0, $brkpoint_name);
+					}
+				}
       }
     }
   }

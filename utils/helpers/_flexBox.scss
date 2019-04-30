@@ -21,11 +21,11 @@
 .layout-row, .layout-row--reverse {
 	@include display_flex;
 	> {
-		@include flexValueClasses(layout-row, 20, 5, 0);
+		@include flexValueClasses(layout-row, 10, 10, 0);
 		@each $brkpoint_name,
 		$brkpoint_value in $breakpoints {
 			@include breakpoint(brkpoint_name) {
-				@include flexValueClasses(layout-row, 20, 5, 0, $brkpoint_name);
+				@include flexValueClasses(layout-row, 10, 10, 0, $brkpoint_name);
 			}
 		}
 	}
@@ -41,11 +41,11 @@
 .layout-column, .layout-column--reverse {
 	@include display_flex;
 	> {
-		@include flexValueClasses(layout-column, 20, 5, 0);
+		@include flexValueClasses(layout-column, 10, 10, 0);
 		@each $brkpoint_name,
 		$brkpoint_value in $breakpoints {
 			@include breakpoint(brkpoint_name) {
-				@include flexValueClasses(layout-column, 20, 5, 0, $brkpoint_name);
+				@include flexValueClasses(layout-column, 10, 10, 0, $brkpoint_name);
 			}
 		}
 	}
